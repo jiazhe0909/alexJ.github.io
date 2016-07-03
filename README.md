@@ -1,8 +1,10 @@
-Slate
-=====
-Slate is responsive theme for GitHub Pages. [Fork it](https://github.com/jsncostello/slate/fork_select) and use it on your own site or generate one automatically using [GitHub Pages](http://pages.github.com).
+#一点点说明
 
-Slate in use:
-![Slate](https://f.cloud.github.com/assets/416727/1730110/c72a2f96-62d3-11e3-9d6f-efc53e24aeb2.png)
+这是[BeiYuu.com](http://beiyuu.com)的示例代码，如果你看了[使用Github Pages建独立博客](http://beiyuu.com/github-pages)，希望看下去哦：
 
-Slate is available under the MIT license.
+* 马上动手，很赞
+* 感谢认可
+* 推荐阅读：[我为什么写博客？](http://beiyuu.com/why-blog)
+* 想复用我的设计，没问题，标个出处就好啦
+* 转载也没问题，标个出处呗少年
+* 恩，认真的童鞋最可爱啦~
