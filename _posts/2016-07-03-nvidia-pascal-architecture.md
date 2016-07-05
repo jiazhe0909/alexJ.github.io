@@ -98,6 +98,10 @@ The 4 features are ranging from computing ability to GPU memory performance. I w
 
 ## Unified Memory and Compute Preemption
 Unified memory is not very related to GPU performance, so I just list the name here. 
-Let's talk about Compute Preemption, which is an important hardware and software feature added to GP100. In kepler and Maxwell, compute tasks are preempted at thread block granularity, thread block of next compute task in same stream will wait until one of SMX avaliable. In 
+Let's talk about Compute Preemption, which is an important hardware and software feature added to GP100. 
+In Kepler and Maxwell, compute tasks are preempted at thread block granularity, thread block of next compute task in same stream will wait until one of SMX avaliable. 
+In Pascal, compute tasks can even be switched on instruction level, which could allow to you shared you GPU resources better. 
+But there might be some performance issues, because frequent task switching will make GPU spend a lot of time on storing one state or loading another.
+
 
  
