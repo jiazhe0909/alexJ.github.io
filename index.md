@@ -22,4 +22,5 @@ layout: default
       </ul>
     </div>
   </div>
+  <script id="dsq-count-scr" src="//jiazhe0909-github.disqus.com/count.js"async></script>
 </body>
