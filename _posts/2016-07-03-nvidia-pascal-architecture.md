@@ -7,6 +7,8 @@ description: Some data we should remember about pascal architecture compared wit
 
 by Alex Jia
 
+# data
+
 Nvidia has announced its new pascal architecture in GTC 2016. There are 4 new features coming with it. In this blog, I want to list some data about this architecture, and compare it with previous Kepler and Maxwell architecture.
 
 The 4 features are ranging from computing ability to GPU memory performance. I will list performance data about these features of Tesla P100, Maxwell M40 and Kepler K40 devices below, to give you a general idea of differences between them.
@@ -104,4 +106,14 @@ In Pascal, compute tasks can even be switched on instruction level, which could 
 But there might be some performance issues, because frequent task switching will make GPU spend a lot of time on storing one state or loading another.
 
 
- 
+# Things worth to point out
+
+## about scheduling and instructions
+
+In white paper, nvidia mentioned that pascal provides superior scheduling. We can expect that something might be changed in software control logic of sm60. We can also make our load/store instructions overlapped in Kepler and Maxwell architecture, I don't know why this feature appears in pascal white paper again. In pascal, two dispatchers of one warp scheduler could dispatch two warp instructions in one clock.
+
+## about FP16
+
+In maxwell, FP16 operation throughput is same to that of FP32. This means you will not achieve any float point operation speed up, if you change you DNN model into FP16, besides some memory and bandwidth saving.
+while, in pascal ,this ratio has been changed. FP16 operation throughput is up to twice that of FP32.
+
