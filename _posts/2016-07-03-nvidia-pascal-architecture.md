@@ -105,8 +105,7 @@ In Kepler and Maxwell, compute tasks are preempted at thread block granularity, 
 In Pascal, compute tasks can even be switched on instruction level, which could allow to you shared you GPU resources better. 
 But there might be some performance issues, because frequent task switching will make GPU spend a lot of time on storing one state or loading another.
 
-
-# Things worth to point out
+### Things worth to point out
 
 ## about scheduling and instructions
 
