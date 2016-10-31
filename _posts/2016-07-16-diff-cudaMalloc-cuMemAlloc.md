@@ -14,4 +14,4 @@ It is said that Driver API should be a little faster(lacking some status check) 
 
 A TIP: memory alloction shouldn't be used in loops.
 
-reference: [nvidia devtalk forum](https://devtalk.nvidia.com/default/topic/387057/cuda-programming-and-performance/difference-between-cudamalloc-and-cudamemalloc-/)
+reference: [nvidia devtalk forum about cudaMalloc and cuMemAlloc](https://devtalk.nvidia.com/default/topic/387057/cuda-programming-and-performance/difference-between-cudamalloc-and-cudamemalloc-/)
