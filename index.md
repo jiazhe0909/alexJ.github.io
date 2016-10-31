@@ -7,6 +7,7 @@ layout: default
     <div class="aside">
       <div class="info-card">
         <h1>Zhe Jia</h1>
+	<h2>jiazhe0909@gmail.com</h2>
       </div>
       <div id="particles-js"></div>
     </div>

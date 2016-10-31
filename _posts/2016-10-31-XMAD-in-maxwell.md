@@ -2,7 +2,7 @@
 layout: post
 title:	XMAD instructions in Maxwell Architecture
 category: blog
-description: XMAD instruction
+description: an XMAD trick in nvidia Maxwell Architecture and later.
 ---
 
 by Zhe Jia
