@@ -14,19 +14,19 @@ Thanks to Scott Gray pointed [the usage of XMAD in this reply](https://groups.go
 XMAD is a 16 bit multiply 32 bit accumulate.
 
 A single unsigned 16bit mad(flags for signed mode are available):
-XMAD d, a, b, c;
+    XMAD d, a, b, c;
 
 A 16 bit times a 32 bit:
-XMAD d, a, b, c;
-XMAD.PSL d, a.H1, b, d;
+    XMAD d, a, b, c;
+    XMAD.PSL d, a.H1, b, d;
 or
-XMAD d, a, b, c;
-XMAD.PSL d, a, b.H1, d;
+    XMAD d, a, b, c;
+    XMAD.PSL d, a, b.H1, d;
 
 A 32 bit times a 32 bit and just keeping the lower 32 bits of result:
-XMAD.MRG x, a, b.H1, RZ;
-XMAD d, a, b, c;
-XMAD.PSL.CBOC d, a.H1, x.H1, d;
+    XMAD.MRG x, a, b.H1, RZ;
+    XMAD d, a, b, c;
+    XMAD.PSL.CBOC d, a.H1, x.H1, d;
 
 But I still cannot able to figure out the meaning of each individual suffix.
 If anyone see this blog happens to know the details of this instruction, please correct me or help me.:D
