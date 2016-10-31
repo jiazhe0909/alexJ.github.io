@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Talk about nvidia's new Pascal architecture. | Alex Jia's blog</title>
-    <meta name="author" content="Alex Jia" />
+    <title>Talk about nvidia's new Pascal architecture. | Zhe Jia's blog</title>
+    <meta name="author" content="Zhe Jia" />
     <meta name="renderer" content="webkit">
-    <meta name="description" content="Alex Jia's Blog" />
+    <meta name="description" content="Zhe Jia's Blog" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/atom.xml" />
@@ -173,7 +173,7 @@ a.external:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 30%;
+  width: 20%;
   height: 100%;
   max-width: 500px;
   background: #59a0b0;
@@ -205,11 +205,21 @@ a.external:hover {
   letter-spacing: 0.15em;
   text-shadow: rgba(255,255,255,0.5) 0 0 15px, rgba(255,255,255,0.5) 0 0 10px;
 }
+.index-wrapper .info-card h2 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.index-wrapper .info-card h3 {
+  font-size: 12px;
+  color: #000;
+  margin-top: 0px;
+}
 .index-wrapper .info-card a {
   margin: 0 15px;
 }
 .index-wrapper .index-content {
-  margin-left: 30%;
+  margin-left: 20%;
   padding-top: 80px;
   padding-right: 15%;
 }
@@ -220,7 +230,7 @@ a.external:hover {
   }
 }
 .index-wrapper .artical-list {
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
 }
 @media screen and (max-width: 767px) {
@@ -585,9 +595,9 @@ li.L9 {
   <div class="post-wrapper">
     <h1 class="post-title"><a href="/nvidia-pascal-architecture" title="Talk about nvidia's new Pascal architecture.">Talk about nvidia's new Pascal architecture.</a></h1>
     <p class="post-date">2016-07-03</p>
-    <p>by Alex Jia</p>
+    <p>by Zhe Jia</p>
 
-<p>Nvidia has announced its new pascal architecture in GTC 2016. There are 4 new features coming with it. In this blog, I want to list some data about this architecture, and compare it with previous Kepler and Maxwell architecture.</p>
+<p>Nvidia has announced its new pascal architecture in GTC 2016. There are 4 new features coming with it. In this blog, I want to list some data about this architecture, and compare it with previous Kepler and Maxwell architectures.</p>
 
 <p>The 4 features are ranging from computing ability to GPU memory performance. I will list performance data about these features of Tesla P100, Maxwell M40 and Kepler K40 devices below, to give you a general idea of differences between them.</p>
 
@@ -678,12 +688,47 @@ li.L9 {
 
 <h2 id="unified-memory-and-compute-preemption">Unified Memory and Compute Preemption</h2>
 <p>Unified memory is not very related to GPU performance, so I just list the name here. 
-Let’s talk about Compute Preemption, which is an important hardware and software feature added to GP100. In kepler and Maxwell, compute tasks are preempted at thread block granularity, thread block of next compute task in same stream will wait until one of SMX avaliable. In</p>
+Let’s talk about Compute Preemption, which is an important hardware and software feature added to GP100. 
+In Kepler and Maxwell, compute tasks are preempted at thread block granularity, thread block of next compute task in same stream will wait until one of SMX avaliable. 
+In Pascal, compute tasks can even be switched on instruction level, which could allow you to shared you GPU resources better. 
+But there might be some performance issues, because frequent task switching will make GPU spend a lot of time on storing one state or loading another.</p>
 
+<h1 id="things-worth-to-point-out">Things worth to point out</h1>
+
+<h2 id="about-scheduling-and-instructions">about scheduling and instructions</h2>
+
+<p>In white paper, nvidia mentioned that pascal provides superior scheduling. We can expect that something might be changed in software control logic of sm60. We can also make our load/store instructions overlapped in Kepler and Maxwell architecture, I don’t know why this feature appears in pascal white paper again. In pascal, two dispatchers of one warp scheduler could dispatch two warp instructions in one clock. The ratio of dispatcher unit per arithmatic unit has increased significantly.</p>
+
+<h2 id="about-fp16">about FP16</h2>
+
+<p>In maxwell, FP16 operation throughput is same to that of FP32. This means you will not achieve any float point operation speed up, if you change you DNN model into FP16, besides some memory and bandwidth saving.
+while, in pascal ,this ratio has been changed. FP16 operation throughput is up to twice that of FP32.</p>
 
     <div id="disqus_container">
   <a href="#" class="comment" onclick="return false;">view all commits</a>
   <div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+    var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        
+        s.src = '//jiazhe0909-github.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//jiazhe0909-github.disqus.com/count.js"async></script>
 </div>
 
   </div>
@@ -694,19 +739,23 @@ Let’s talk about Compute Preemption, which is an important hardware and softwa
     <ul>
       
       <li>
+        <a href="/XMAD-in-maxwell" class="title">XMAD instructions in Maxwell Architecture</a>
+      </li>
+      
+      <li>
+        <a href="/diff-cudaMalloc-cuMemAlloc" class="title">Difference between cudaMalloc and cuMemAlloc.</a>
+      </li>
+      
+      <li>
+        <a href="/nvidia-gpu-L1-L2-cacheline" class="title">Nvidia Pascal GPU L1/texture cache and L2cacheline experiment</a>
+      </li>
+      
+      <li>
+        <a href="/global-memory-stride" class="title">Nvidia Pascal GPU L1 and L2 cacheline experiment</a>
+      </li>
+      
+      <li>
         <a href="/nvidia-pascal-architecture" class="title">Talk about nvidia's new Pascal architecture.</a>
-      </li>
-      
-      <li>
-        <a href="/carriage-return-line-feed-new-line-end-file" class="title">回车、换行、和文件末尾空行</a>
-      </li>
-      
-      <li>
-        <a href="/github-pages" class="title">使用Github Pages建独立博客</a>
-      </li>
-      
-      <li>
-        <a href="/why-blog" class="title">我为什么写博客？</a>
       </li>
       
     </ul>
