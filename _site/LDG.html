@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>XMAD instructions in Maxwell Architecture | Zhe Jia's blog</title>
+    <title>About LDG LDG.CI and LDU LDC instruction | Zhe Jia's blog</title>
     <meta name="author" content="Zhe Jia" />
     <meta name="renderer" content="webkit">
     <meta name="description" content="Zhe Jia's Blog" />
@@ -593,46 +593,23 @@ li.L9 {
 
   <body class="body-post">
   <div class="post-wrapper">
-    <h1 class="post-title"><a href="/XMAD-in-maxwell" title="XMAD instructions in Maxwell Architecture">XMAD instructions in Maxwell Architecture</a></h1>
-    <p class="post-date">2016-10-31</p>
+    <h1 class="post-title"><a href="/LDG" title="About LDG LDG.CI and LDU LDC instruction">About LDG LDG.CI and LDU LDC instruction</a></h1>
+    <p class="post-date">2016-11-01</p>
     <p>by Zhe Jia</p>
 
-<p>As njuffa talked in <a href="https://devtalk.nvidia.com/default/topic/804281/cuda-programming-and-performance/maxwell-integer-mul-mad-instruction-counts/post/4423835/">this nvidia dev-forum thread</a>, from Maxwell architecture many IMAD instructions could be emulated by XMAD insstruction. Because for 32 bit multiplies, XMAD shares FFMA hardware unit which could have 4x throughput than that of IMAD, and it only cost 3 XMADs to implement an IMAD. Thus there will be a net win of 1.3x (4.0/3.0).</p>
+<p>Please correct me, if anything is wrong.</p>
 
-<p>Thanks to Scott Gray pointed <a href="https://groups.google.com/forum/#topic/maxas-discuss/4rovrjSRzKA">the usage of XMAD in this reply</a>
-(shamelessly copy them here)
-XMAD is a 16 bit multiply 32 bit accumulate.</p>
+<p>LDG.CI is load data from global memory though read only cache(non-coherent cache). LDG.CI could be generated with _ldg() or const __restrict__.</p>
 
-<p>A single unsigned 16bit mad(flags for signed mode are available):</p>
+<p>LDC is load data from constant memory, and constant memory could do broadcast for all threads in one warp.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>XMAD d, a, b, c;
-</code></pre>
-</div>
+<p>LDU is outdated, included in Fermi architecture. njuffa mentioned LDU load through constant cache and could also broadcast(some feature of load uniform).</p>
 
-<p>A 16 bit times a 32 bit:</p>
+<p>Reference:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>XMAD d, a, b, c;
-XMAD.PSL d, a.H1, b, d;
-</code></pre>
-</div>
+<p>1 nvidia developer forum: <a href="https://devtalk.nvidia.com/default/topic/865864/maxwell-sm_50-instruction-ldg-e-/">https://devtalk.nvidia.com/default/topic/865864/maxwell-sm_50-instruction-ldg-e-/</a></p>
 
-<p>or</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>XMAD d, a, b, c;
-XMAD.PSL d, a, b.H1, d;
-</code></pre>
-</div>
-
-<p>A 32 bit times a 32 bit and just keeping the lower 32 bits of result:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>XMAD.MRG x, a, b.H1, RZ;
-XMAD d, a, b, c;
-XMAD.PSL.CBOC d, a.H1, x.H1, d;
-</code></pre>
-</div>
-
-<p>But I am still unable to figure out the meaning of each individual suffix.
-If anyone see this blog happens to know the details of this instruction, please correct me or help me.:D</p>
+<p>2 nvidia documentation: <a href="docs.nvidia.com/cuda/cuda-binary-utilities/index.html">nvidia binary utilities</a></p>
 
     <div id="disqus_container">
   <a href="#" class="comment" onclick="return false;">view all commits</a>
