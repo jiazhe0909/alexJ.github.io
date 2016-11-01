@@ -2,7 +2,7 @@
 layout: post
 title:	Nvidia Pascal GPU L1/texture cache and L2cacheline experiment
 category: blog
-description: Some data we should remember about pascal architecture compared with previous ones
+description: 
 ---
 
 by Alex Jia
