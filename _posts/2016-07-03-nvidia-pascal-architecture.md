@@ -67,8 +67,8 @@ The 4 features are ranging from computing ability to GPU memory performance. I w
 <tr>
 	<td width="250" style="border: 1px solid #ccc"><left>GPU-to-GPU data transfer</left></td>
 	<td width="150" style="border: 1px solid #ccc"><center>NVLink: 160GB/s bi-direct</center></td>
-	<td width="150" style="border: 1px solid #ccc"><center>PCIe 3.0x16 lane: 16GB/s bi-direct</center></td>
-	<td width="150" style="border: 1px solid #ccc"><center>PCIe 3.0x16 lane: 16GB/s bi-direct</center></td>
+	<td width="150" style="border: 1px solid #ccc"><center>PCIe 3.0x16 lane: ~32GB/s bi-direct</center></td>
+	<td width="150" style="border: 1px solid #ccc"><center>PCIe 3.0x16 lane: ~32GB/s bi-direct</center></td>
 </tr>
 </table>
 
