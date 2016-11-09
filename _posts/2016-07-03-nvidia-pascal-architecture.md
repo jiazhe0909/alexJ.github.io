@@ -85,7 +85,7 @@ The 4 features are ranging from computing ability to GPU memory performance. I w
 	<th width="150" style="border: 1px solid #ccc"><center>Kepler</center></th>
 </tr>
 <tr>
-	<td width="250" style="border: 1px solid #ccc"><left>GPU-to-GPU data transfer</left></td>
+	<td width="250" style="border: 1px solid #ccc"><left>GPU Memory Performance</left></td>
 	<td width="150" style="border: 1px solid #ccc"><center>720 GB/s</center></td>
 	<td width="150" style="border: 1px solid #ccc"><center>288 GB/s</center></td>
 	<td width="150" style="border: 1px solid #ccc"><center>288 GB/s</center></td>
