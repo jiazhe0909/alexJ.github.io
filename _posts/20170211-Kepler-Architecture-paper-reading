@@ -1,0 +1,9 @@
+Roofline Model can be used to bound Floating-point performance as a function of machine peak performance, machine peak bandwidth, and arithmetic intensity.[](http://crd.lbl.gov/departments/computer-science/PAR/research/roofline)
+shared memory transaction size is 256 Byte,thus 1 warp of LDS.128 need at least 2 transactions. 
+LDS.64 bandwidth is higher than LDS.128 bandwidth,and LDS.128 even could become the bottleneck of 12x12 sgemm implementation.
+Arithmetic intensity
+Kepler L1 cache is designed for local rather then global mem access.
+Texture Cache is faster because of its weak consistency.
+K20: global mem bandwidth : ~200GB/s
+     shared mem bandwidth : ~2349GB/s
+Xiuxia Zhang etal, Understanding the GPU Microarchitecture to Achieve Bare-Metal Performance Tuning, PPOPP'17.
